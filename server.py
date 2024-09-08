@@ -1,14 +1,13 @@
-import os
+FROM python:3.9-slim
 
-from flask import Flask
+WORKDIR /app
 
-app = Flask(__name__)
+COPY . .
 
-@app.route('/')
-def hello():
-    return 'Hello World!'
+RUN pip install Flask
 
-if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 5000
+
+CMD ["python", "server.py"]
