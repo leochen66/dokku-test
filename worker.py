@@ -9,7 +9,7 @@ def write_to_log():
 def main():
     while True:
         write_to_log()
-        time.sleep(10)  # 每 10 秒寫入一行
+        time.sleep(10)
 
 if __name__ == "__main__":
     main()
